@@ -13,3 +13,7 @@ def dict_params(request):
 @pytest.fixture(params=['arguments', 'with'])
 def string_params(request):
     return request.param
+
+@pytest.fixture(params=['один', 'два', 'три', 1, 2, 3])
+def set_params(request):
+    return request.param
