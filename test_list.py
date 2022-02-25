@@ -61,3 +61,24 @@ class TestString:
     @pytest.mark.parametrize('part_ttext', ['arguments', 'with'])
     def test_S5(self, part_ttext):
         assert part_ttext in self.ttext
+        
+class TestSet:
+
+    set1 = {'один', 'два', 'три', 1, 2, 3}
+    set2 = {'один', 'два', 'три', 'четыре', 'пять', 1, 2, 3, 4, 5}
+
+    def test_S1(self):
+        assert self.set1 <= self.set2
+
+    def test_S2(self):
+        assert 'один' in self.set1
+
+    def test_S3(self):
+        assert len(self.set1) == 6
+
+    def test_S4(self, set_params):
+        assert set_params in self.set1
+
+    @pytest.mark.parametrize('set_params4', ['один', 'два', 'три', 1, 2, 3])
+    def test_S5(self, set_params4):
+        assert set_params4 in self.set1
